@@ -42,7 +42,7 @@ public class Daemon extends Thread {
 
             try {
                 if (echoServer == null) {
-                    echoServer = new ServerSocket(port, 50, InetAddress.getByName("127.0.0.1"));
+                    echoServer = new ServerSocket(port, 50, InetAddress.getLoopbackAddress());
                 }
             } catch (IOException e) {
                 logger.warn(e);
