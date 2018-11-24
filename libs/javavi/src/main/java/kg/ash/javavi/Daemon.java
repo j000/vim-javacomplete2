@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.LinkedList;
@@ -41,7 +42,7 @@ public class Daemon extends Thread {
 
             try {
                 if (echoServer == null) {
-                    echoServer = new ServerSocket(port);
+                    echoServer = new ServerSocket(port, 50, InetAddress.getByName("127.0.0.1"));
                 }
             } catch (IOException e) {
                 logger.warn(e);
